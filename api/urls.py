@@ -19,6 +19,10 @@ urlpatterns = [
     path('token/refresh',
          TokenRefreshView.as_view(),
          name="token-refresh"),
+    path('community/',
+         views.CommunityListCreate.as_view(),
+         name='community-view-create'),
     path('api-auth/',
          include("rest_framework.urls")),
+
 ]
