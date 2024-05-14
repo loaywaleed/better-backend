@@ -4,12 +4,6 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 
 urlpatterns = [
-    path('habits/',
-         views.HabitListCreate.as_view(),
-         name="habit-view-create"),
-    path('habits/<int:pk>/',
-         views.HabitRetrieveUpdateDestroy.as_view(),
-         name="habit-update-destroy"),
     path('users/signup/',
          views.UserCreate.as_view(),
          name="user-create"),
