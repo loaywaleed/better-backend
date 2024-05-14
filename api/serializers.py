@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import Habit, Community
+from .models import Habit
 
 
 class HabitSerializer(serializers.ModelSerializer):
@@ -20,7 +20,3 @@ class UserSerializer(serializers.ModelSerializer):
         return user
 
 
-class CommunitySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Community
-        fields = "__all__"
