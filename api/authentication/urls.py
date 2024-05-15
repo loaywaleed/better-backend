@@ -13,7 +13,8 @@ urlpatterns = [
     path('token/refresh',
          TokenRefreshView.as_view(),
          name="token-refresh"),
+    path('user/',
+         views.UserView.as_view(), name="user-home-view"),
     path('api-auth/',
          include("rest_framework.urls")),
-
 ]
