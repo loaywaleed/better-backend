@@ -26,7 +26,7 @@ class UserView(generics.RetrieveAPIView):
     def get(self, request):
         user = request.user
         return Response({
+            'firstName' : user.first_name,
+            'lastName': user.last_name,
             'username': user.username,
-            'email': user.email,
-            # Add more user data as needed
         })
