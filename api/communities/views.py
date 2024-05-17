@@ -10,3 +10,11 @@ class CommunityListCreate(generics.ListCreateAPIView):
     serializer_class = CommunitySerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
 
+    def perform_create(self, serializer):
+        community = serializer.save()
+        user = self.request.user
+        community.members.add(user)
+        community.admin = user
+        community.save()
+        
+    

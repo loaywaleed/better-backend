@@ -9,6 +9,7 @@ class Community(models.Model):
     icon = models.CharField(max_length=100, null=True)
     description = models.TextField(null=True)
     members = models.ManyToManyField(User)
+    admin = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='admin_communities')
 
     def __str__(self) -> str:
         return self.name
