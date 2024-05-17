@@ -2,7 +2,8 @@ from django.shortcuts import render
 from rest_framework import generics
 from .models import Community
 from .serializers import CommunitySerializer
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from .permissions import IsCommunityAdmin
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 
 
 class CommunityListCreate(generics.ListCreateAPIView):
@@ -17,4 +18,7 @@ class CommunityListCreate(generics.ListCreateAPIView):
         community.admin = user
         community.save()
         
-    
+class CommunityRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Community.objects.all()
+    serializer_class = CommunitySerializer
+    permission_classes = [IsAuthenticated, IsCommunityAdmin]
