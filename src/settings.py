@@ -59,7 +59,7 @@ INSTALLED_APPS = [
     # 'api',
     'corsheaders',
     'api.communities',
-    'api.authentication'
+    'api.users'
 ]
 
 MIDDLEWARE = [

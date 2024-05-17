@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import Community
-from ..authentication.serializers import UserSerializer
+from ..users.serializers import UserSerializer
 
 
 class CommunitySerializer(serializers.ModelSerializer):
