@@ -22,3 +22,4 @@ class CommunityRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIVie
     queryset = Community.objects.all()
     serializer_class = CommunitySerializer
     permission_classes = [IsAuthenticated, IsCommunityAdmin]
+    lookup_field = 'id'
