@@ -25,8 +25,6 @@ class UserView(generics.RetrieveAPIView):
 
     def get(self, request):
         user = request.user
-        return Response({
-            'firstName' : user.first_name,
-            'lastName': user.last_name,
-            'username': user.username,
-        })
+        serializer = UserSerializer(user)
+        return Response(serializer.data)
+        
