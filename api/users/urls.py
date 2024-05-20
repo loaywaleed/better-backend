@@ -15,6 +15,8 @@ urlpatterns = [
          name="token-refresh"),
     path('user/',
          views.UserView.as_view(), name="user-home-view"),
+     path('user/communities',
+         views.UserCommunityView.as_view(), name="user-community-view"),
     path('api-auth/',
          include("rest_framework.urls")),
 ]
