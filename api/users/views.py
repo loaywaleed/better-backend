@@ -20,6 +20,12 @@ class UserCreate(generics.CreateAPIView):
 
 
 class UserView(generics.RetrieveAPIView):
+    """
+    A view for viewing user data from jwt.
+
+    get:
+    Gets user data.
+    """
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
 
@@ -30,6 +36,12 @@ class UserView(generics.RetrieveAPIView):
         
 
 class UserCommunityView(generics.RetrieveAPIView):
+    """
+    A view for viewing user data from jwt.
+
+    get:
+    Gets user data.
+    """
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
 

@@ -22,6 +22,7 @@ class CommunityListCreate(generics.ListCreateAPIView):
         community.admin = user
         community.save()
         
+
 class CommunityRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Community.objects.all()
     serializer_class = CommunitySerializer
