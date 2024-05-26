@@ -31,12 +31,23 @@ class CommunityRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIVie
 
 
 class MemberAddAPIView(APIView):
+    def _get_community(self, id):
+        try:
+            return Community.objects.get(id=id)
+        except Community.DoesNotExist:
+            raise NotFound({'error': 'Community does not exist'})
+    
+    def _get_user(self, username):
+        try:
+            return User.objects.get(username=username)
+        except User.DoesNotExist:
+            raise NotFound({'error': 'User does not exist'})
+        
     def post(self, request, id):
         try:
             community = Community.objects.get(id=id)
         except Community.DoesNotExist:
             return Response({'error': 'Community does not exist'})
-
         username = request.data.get('username')
         if not username:
             raise ValidationError({'error': 'Username is required'})
@@ -49,4 +60,17 @@ class MemberAddAPIView(APIView):
         community.members.add(user)
         community.save()
         serializer = UserSerializer(user)
-        return Response(serializer.data)
+        return Response({'user added': serializer.data})
+    
+    def delete(self, request, id):
+        community = self.get_community(id)
+        username = request.data.get('username')
+        if not username:
+            return ValidationError({'error': 'Username is required'})
+        user = self._get_user(username)
+        if user not in community.members.all():
+            return Response({'error': 'User is not a member of this community'})
+        community.members.remove(user)
+        community.save()
+        return Response({'message': 'User removed from the community succesfully'})
+    
