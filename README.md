@@ -1,7 +1,5 @@
 # Best Version of Yourself REST API
 
-## Endpoints:
-
 ## API Endpoints
 
 ### Users:
