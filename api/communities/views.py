@@ -31,6 +31,7 @@ class CommunityRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIVie
 
 
 class MemberAddAPIView(APIView):
+    permission_classes = [IsAuthenticated, IsCommunityAdmin]
     def _get_community(self, id):
         try:
             return Community.objects.get(id=id)
