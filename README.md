@@ -35,6 +35,9 @@
 
 ### Community Members:
 
-- `POST /communities/members`
+- `POST /communities/<id>/members/`
     - Description: Create a new community
+- `DELETE /communities/<id>/members`
+    - Description: Create a new community
+
 
