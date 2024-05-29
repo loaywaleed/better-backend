@@ -36,8 +36,12 @@
 ### Community Members:
 
 - `POST /communities/<id>/members/`
-    - Description: Create a new community
+    - Description: Adds a new member to the community
+    - Authentication : Required
+    - IsAdmin : Required
 - `DELETE /communities/<id>/members`
-    - Description: Create a new community
+    - Description: Removes a member from the community
+    - Authentication : Required
+    - IsAdmin : Required
 
 
