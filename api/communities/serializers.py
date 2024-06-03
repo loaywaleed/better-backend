@@ -7,7 +7,7 @@ from ..users.serializers import UserSerializer
 class HabitSerializer(serializers.ModelSerializer):   
     class Meta:
         model = CommunityHabit
-        fields = ['id', 'name', 'description', 'motivation']
+        fields = ['id', 'name', 'description', 'motivation', 'frequency', 'duration']
 
 class CommunitySerializer(serializers.ModelSerializer):
     members = UserSerializer(many=True, read_only=True)

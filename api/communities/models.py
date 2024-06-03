@@ -26,5 +26,6 @@ class CommunityHabit(models.Model):
     description = models.TextField(null=True)
     # Number of days to do the habit per week
     frequency = models.IntegerField(null=True)
+    duration = models.IntegerField(null=True)
     motivation = models.TextField(null=True)
     community = models.ForeignKey(Community, on_delete=models.CASCADE, related_name="habits")
