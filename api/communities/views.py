@@ -106,3 +106,14 @@ class CommunityHabitListCreate(generics.ListCreateAPIView):
         community_id = self.kwargs.get('id')
         queryset = CommunityHabit.objects.filter(community_id=community_id)
         return queryset
+
+
+class CommunityHabitRetreiveUpdateDelete(generics.RetrieveDestroyAPIView):
+    queryset = CommunityHabitView
+    serializer_class = HabitSerializer
+    lookup_field = 'pk'
+
+    def get_queryset(self):
+        community_id = self.kwargs.get('id')
+        queryset = CommunityHabit.objects.filter(community_id=community_id)
+        return queryset
